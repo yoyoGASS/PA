@@ -1,0 +1,20 @@
+import tailwindcss from '@tailwindcss/vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+import { defineConfig } from 'vite';
+
+export default defineConfig(({ mode }) => ({
+  base: mode === 'demo' ? '/PA/' : '/',
+  plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3001',
+      '/uploads': 'http://localhost:3001',
+    },
+  },
+}));
