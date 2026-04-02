@@ -25,9 +25,9 @@ export default function HeroSection() {
             {hero?.subtext || '在 LE PILATES STUDIO，我們不僅訓練肌肉，更在精緻的空間中，帶領您找回身體的覺察與平衡。'}
           </p>
           <div className="flex space-x-4">
-            <a href="#booking" className="btn-rose-gold px-10 py-4">
+            <button onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })} className="btn-rose-gold px-10 py-4">
               {hero?.cta_text || '立即預約體驗'}
-            </a>
+            </button>
           </div>
         </motion.div>
 
